@@ -1,0 +1,128 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// This file shadows the one in the al_folio_core gem: Jekyll prefers the site's
+// copy. Everything above the "site customisations" rule below is a verbatim copy
+// of the gem's assets/css/main.scss — if you upgrade the theme and the styling
+// looks wrong, diff this against the gem's version and re-copy the @use block.
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials.
+   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Your project partials — convert these files to `@use "variables";`
+   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+// ---------------------------------------------------------------------------
+// site customisations
+// ---------------------------------------------------------------------------
+
+// Profile picture hover swap.
+//
+// The theme renders the portrait as <picture><source webp><img png></picture>,
+// so swapping img.src in JavaScript does nothing — the browser has already
+// chosen the <source>. Instead the second image sits underneath as a background
+// on the <picture>, and the <img> fades out on hover to reveal it. Pure CSS, and
+// it degrades to a static portrait if the hover image is missing.
+.profile {
+  picture {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.2rem; // matches Bootstrap's .rounded on the <img>
+    background-image: url("{{ '/assets/img/prof_pic_hover.jpg' | relative_url }}");
+    background-size: cover;
+    background-position: center;
+
+    img {
+      display: block;
+      transition: opacity 0.18s ease-in-out;
+    }
+
+    &:hover img {
+      opacity: 0;
+    }
+  }
+
+  // Respect the OS "reduce motion" setting: no fade, and no swap.
+  @media (prefers-reduced-motion: reduce) {
+    picture {
+      background-image: none;
+
+      img {
+        transition: none;
+      }
+
+      &:hover img {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Accent colour: orange instead of the theme's purple (light) / cyan (dark).
+// --global-theme-color drives links, hovers, the dashed rule under co-author
+// names, and the venue badges; --global-highlight-color is used for award
+// borders. Two shades so contrast holds on both backgrounds.
+:root {
+  --global-theme-color: #c2410c;
+  --global-hover-color: #c2410c;
+  --global-highlight-color: #c2410c;
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #fb923c;
+  --global-hover-color: #fb923c;
+  --global-highlight-color: #fb923c;
+}
+
+// Wider gutter between the portrait and the about text (theme default is 1rem).
+.profile.float-right {
+  margin-left: 2.5rem;
+}
+
+.profile.float-left {
+  margin-right: 2.5rem;
+}
+
+// Even spacing for the footer social icons. Scholar is an Academicons glyph while
+// GitHub and LinkedIn are FontAwesome, and the two fonts have different advance
+// widths — so the Scholar icon sat closer to GitHub than LinkedIn did. Giving every
+// glyph the same fixed-width box (FontAwesome's own fa-fw width) evens them out.
+.social .contact-icons a i {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
+}
+
+// Drop the horizontal rule above each year heading on the publications page.
+// The heading text stays; only the divider line goes. padding-top is zeroed too,
+// since it existed to hold the text clear of that line.
+.publications h2.bibliography {
+  border-top: none;
+  padding-top: 0;
+}

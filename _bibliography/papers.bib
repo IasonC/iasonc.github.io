@@ -1,0 +1,45 @@
+---
+---
+
+@inproceedings{chaimalas2025explorer,
+  abbr         = {arXiv},
+  bibtex_show  = {true},
+  selected     = {true},
+  title        = {Explorer: Robust Collection of Interactable GUI Elements},
+  author       = {Chaimalas, Iason and Vyšniauskas, Arnas and Brostow, Gabriel},
+  booktitle    = {arXiv preprint arXiv:2504.09352},
+  year         = {2025},
+  preview      = {explorer.png},
+  arxiv        = {2504.09352},
+  additional_info = {. Equal contribution by Chaimalas and Vyšniauskas},
+  abstract     = {Automation of existing Graphical User Interfaces (GUIs) is important but hard to achieve. Upstream of making the GUI user-accessible or somehow scriptable, even the data-collection to understand the original interface poses significant challenges. For example, large quantities of general UI data seem helpful for training general machine learning (ML) models, but accessibility for each person can hinge on the ML's precision on a specific app. We therefore take the perspective that a given user needs confidence, that the relevant UI elements are being detected correctly throughout one app or digital environment. We mostly assume that the target application is known in advance, so that data collection and ML-training can be personalized for the test-time target domain. The proposed Explorer system focuses on detecting on-screen buttons and text-entry fields, i.e. interactables, where the training process has access to a live version of the application. The live application can run on almost any popular platform except iOS phones, and the collection is especially streamlined for Android phones or for desktop Chrome browsers. Explorer also enables the recording of interactive user sessions, and subsequent mapping of how such sessions overlap and sometimes loop back to similar states. We show how having such a map enables a kind of path planning through the GUI, letting a user issue audio commands to get to their destination. Critically, we are releasing our code for Explorer openly at https://github.com/varnelis/Explorer.}
+}
+
+@inproceedings{ramesh2024grpo,
+  abbr         = {NeurIPS},
+  bibtex_show  = {true},
+  selected     = {true},
+  title        = {Group Robust Preference Optimization in Reward-free RLHF},
+  author       = {Ramesh, Shyam Sundhar and Hu, Yifan and Chaimalas, Iason and Mehta, Viraj and Sessa, Pier Giuseppe and Bou Ammar, Haitham and Bogunovic, Ilija},
+  booktitle    = {Advances in Neural Information Processing Systems 37 (NeurIPS)},
+  pages        = {37100--37137},
+  year         = {2024},
+  preview      = {grpo.png},
+  arxiv        = {2405.20304},
+  abstract     = {Adapting large language models (LLMs) for specific tasks usually involves fine-tuning through reinforcement learning with human feedback (RLHF) on preference data. While these data often come from diverse labelers' groups (e.g., different demographics, ethnicities, company teams, etc.), traditional RLHF approaches adopt a "one-size-fits-all" approach, i.e., they indiscriminately assume and optimize a single preference model, thus not being robust to unique characteristics and needs of the various groups. To address this limitation, we propose a novel Group Robust Preference Optimization (GRPO) method to align LLMs to individual groups' preferences robustly. Our approach builds upon reward-free direct preference optimization methods, but unlike previous approaches, it seeks a robust policy which maximizes the worst-case group performance. To achieve this, GRPO adaptively and sequentially weights the importance of different groups, prioritizing groups with worse cumulative loss. We theoretically study the feasibility of GRPO and analyze its convergence for the log-linear policy class. By fine-tuning LLMs with GRPO using diverse group-based global opinion data, we significantly improved performance for the worst-performing groups, reduced loss imbalances across groups, and improved probability accuracies compared to non-robust baselines.}
+}
+
+@inproceedings{chaimalas2023bootstrapped,
+  abbr         = {RecSys},
+  bibtex_show  = {true},
+  selected     = {true},
+  title        = {Bootstrapped Personalized Popularity for Cold Start Recommender Systems},
+  author       = {Chaimalas, Iason and Walker, Duncan Martin and Gruppi, Edoardo and Clark, Benjamin Richard and Toni, Laura},
+  booktitle    = {Proceedings of the 17th ACM Conference on Recommender Systems (RecSys)},
+  pages        = {715--722},
+  year         = {2023},
+  publisher    = {ACM},
+  preview      = {bpp.png},
+  html         = {https://doi.org/10.1145/3604915.3608820},
+  abstract     = {Recommender Systems are severely hampered by the well-known Cold Start problem, identified by the lack of information on new items and users. This has led to research efforts focused on data imputation and augmentation models as predominantly data preprocessing strategies, yet their improvement of cold-user performance is largely indirect and often comes at the price of a reduction in accuracy for warmer users. To address these limitations, we propose Bootstrapped Personalized Popularity (B2P), a novel framework that improves performance for cold users (directly) and cold items (implicitly) via popularity models personalized with item metadata. B2P is scalable to very large datasets and directly addresses the Cold Start problem, so it can complement existing Cold Start strategies. Experiments on a real-world dataset from the BBC iPlayer and a public dataset demonstrate that B2P (1) significantly improves cold-user performance, (2) boosts warm-user performance for bootstrapped models by lowering their training sparsity, and (3) improves total recommendation accuracy at a competitive diversity level relative to existing high-performing Collaborative Filtering models. We demonstrate that B2P is a powerful and scalable framework for strongly cold datasets.}
+}

@@ -1,0 +1,5 @@
+**/*.map
+**/*.min.css
+**/*.min.js
+# citation counts are generated, not hand-edited
+_data/citations.yml

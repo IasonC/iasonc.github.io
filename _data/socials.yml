@@ -1,0 +1,9 @@
+# Social links shown under the profile picture and in the footer.
+# Displayed in the order defined here. Comment out a line to hide that icon.
+# See https://github.com/george-gca/jekyll-socials for every supported key.
+scholar_userid: fyBP3sIAAAAJ # Google Scholar
+github_username: IasonC
+linkedin_username: iason-chaimalas
+# rss_icon: true # uncomment to show an RSS link; the feed at /feed.xml exists either way
+# email: iasonchaimalas@gmail.com # uncomment to show an email icon
+# cv_pdf: /assets/pdf/cv.pdf # uncomment once you drop a CV into assets/pdf/
